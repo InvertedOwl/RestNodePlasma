@@ -47,6 +47,9 @@
     <Reference Include="Assembly-CSharp-firstpass">
       <HintPath>D:\SteamLibrary\steamapps\common\Plasma Demo\Plasma_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
     </Reference>
+    <Reference Include="Plasma-Custom-Nodes">
+      <HintPath>..\..\..\..\OneDrive\Documents\Visual Studio 2022\Plasma Mods\Plasma-Custom-Nodes\Plasma-Custom-Nodes\bin\Release\net4.8\Plasma-Custom-Nodes.dll</HintPath>
+    </Reference>
     <Reference Include="PlasmaLibrary, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>D:\SteamLibrary\steamapps\common\Plasma Demo\Plasma_Data\Managed\PlasmaLibrary.dll</HintPath>

@@ -16,30 +16,13 @@ namespace RestNodeUMM
 #endif
     public static class Main
     {
-        static Harmony harmony;
-        static AgentId restId;
         static AgentGestalt gestalt;
         static bool loadedNodeResources = false;
 
         public static bool Load(UnityModManager.ModEntry entry)
         {
             Debug.Log("RestNodeUMM loaded");
-            harmony = new Harmony(entry.Info.Id);
-            harmony.PatchAll(Assembly.GetExecutingAssembly());
-            entry.OnToggle = OnToggle;
-
-            restId = new AgentId();
-            restId.type = AgentGestalt.Types.Logic;
-            restId.guid = 1000;
-            restId.displayName = "Rest";
-            restId.agentGestaltId = (AgentGestaltEnum)1000;
-            GetGestalt();
-
-
-
-
-            //Holder.agentGestalts.Add((AgentGestaltEnum)1000, gestalt);
-
+            PlasmaModding.CustomNodeManager.CreateNode(GetGestalt(), "rest-api-post-request");
             return true;
 
         }
@@ -76,21 +59,6 @@ namespace RestNodeUMM
             return gestalt;
         }
 
-
-        static bool OnToggle(UnityModManager.ModEntry entry, bool active)
-        {
-            if (active)
-            {
-                harmony.PatchAll(Assembly.GetExecutingAssembly());
-            }
-            else
-            {
-                harmony.UnpatchAll(entry.Info.Id);
-            }
-
-            return true;
-        }
-
 #if DEBUG
         static bool OnUnload(UnityModManager.ModEntry entry) {
             return true;
@@ -114,23 +82,6 @@ namespace RestNodeUMM
             private AgentProperty _v1;
 
 
-        }
-
-        [HarmonyPatch(typeof(Resources), "LoadAll", new Type[]{typeof(string), typeof(Type)})]
-        class HolderAwakePatch
-        {
-            public static void Postfix(string path, Type systemTypeInstance, ref UnityEngine.Object[] __result)
-            {
-                if (path == "Gestalts/Logic Agents" && systemTypeInstance == typeof(AgentGestalt) && !loadedNodeResources)
-                {
-                    int size = __result.Length;
-                    UnityEngine.Object[] temp = new UnityEngine.Object[size + 1];
-                    __result.CopyTo(temp, 0);
-                    temp[size] = GetGestalt();
-                    __result = temp;
-                    loadedNodeResources = true;
-                }
-            }
         }
     }
 }
