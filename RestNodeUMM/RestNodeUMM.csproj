@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>RestNodeUMM</RootNamespace>
     <AssemblyName>RestNodeUMM</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>false</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +31,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
@@ -42,7 +45,7 @@
       <HintPath>D:\SteamLibrary\steamapps\common\Plasma Demo\Plasma_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Plasma Demo\Plasma_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+      <HintPath>D:\SteamLibrary\steamapps\common\Plasma Demo\Plasma_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
     </Reference>
     <Reference Include="PlasmaLibrary, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -94,6 +97,6 @@ MD "$(ProjectDir)dist"
 XCOPY /Y /D "$(ProjectDir)$(OutDir)$(TargetFileName)" "$(ProjectDir)dist\"
 XCOPY /Y /D "$(ProjectDir)Info.json" "$(ProjectDir)dist\"
 powershell Compress-Archive -DestinationPath "$(ProjectDir)$(ProjectName)-$(ConfigurationName).zip" -Path "$(ProjectDir)dist\*" -CompressionLevel "Optimal" -Force
-XCOPY /Y /D /S "$(ProjectDir)dist\*" "D:\SteamLibrary\SteamApps\common\Plasma Demo\Mods\$(ProjectName)\"</PostBuildEvent>
+XCOPY /Y /D /S "$(ProjectDir)dist\*" "D:\SteamLibrary\steamapps\common\Plasma Demo\Mods\$(ProjectName)\"</PostBuildEvent>
   </PropertyGroup>
 </Project>

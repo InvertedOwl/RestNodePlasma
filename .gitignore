@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/RestNodeUMM/obj
+/RestNodeUMM/bin/Debug
+/RestNodeUMM/RestNodeUMM-Debug.zip
+/.vs/RestNodeUMM/v17
+/.vs
